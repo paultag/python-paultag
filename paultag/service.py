@@ -38,20 +38,15 @@ class Service(object):
         params = kwargs
         kwargs['apikey'] = self.apikey
 
-        if 'fields' in kwargs:
-            kwargs['fields'] = ",".join(kwargs.pop('fields'))
-
         response = requests.request(
             method,
-            self.get_url(
-                self.host,
-                *args
-        ), params=params)
+            self.get_url(self.host, *args),
+            headers={"Accept": "application/json"},
+            params=params
+        )
         if response.ok:
             return response.json()
         raise ValueError(response.json())
 
     def _get_apikey(self):
-        """
-        """
         pass
