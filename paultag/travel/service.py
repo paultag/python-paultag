@@ -10,3 +10,6 @@ class TravelService(Service):
 
     def trip(self, trip_id):
         return self._query("GET", "trip", trip_id)
+
+    def whereis(self, who):
+        return self._query("GET", "whereis", who)
