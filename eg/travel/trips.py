@@ -1,5 +1,6 @@
 from paultag.travel.service import TravelService
 
+
 def print_trip(trip):
     print("""Trip ID: {id}
 From:    {start}
